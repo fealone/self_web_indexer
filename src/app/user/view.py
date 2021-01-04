@@ -24,7 +24,7 @@ def get_db():
         db.close()
 
 
-@router.post("/user/_regist", tags=["user"], response_model=schemes.User)
+@router.post("/user/_register", tags=["user"], response_model=schemes.User)
 async def regist_user(user: schemes.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
     if db_user:
